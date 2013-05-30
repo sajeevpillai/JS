@@ -1,0 +1,34 @@
+//$.noConflict();
+
+var selected_elt;
+
+$(document).ready(function(){
+	$('.gg_button, .read_btn, .book_btn, .read8_btn, .diff_button, .olist_btn, .fash_btn, .beck_btn').bind("touchstart", 
+		function( event ){
+			event.preventDefault();
+			event.stopPropagation();
+			orig_width = $('.background_image').css('width');
+			selected_elt = $(this);
+			selected_elt.bind("touchmove",button_touch_move);
+			//selected_elt.bind("touchend",button_touch_end);
+			button_touch_start(selected_elt, event);
+			return;
+	});
+});
+
+function button_touch_start(this_elt, event){
+	event.preventDefault();
+	this_elt.attr("src", this_elt.attr("touch"));
+}
+
+var button_touch_move = function (event){
+	event.preventDefault();
+	event.stopPropagation();
+}
+
+function button_touch_end() {
+	//event.preventDefault();
+	selected_elt.attr("src", selected_elt.attr("notouch"));
+	selected_elt.unbind("touchmove");
+	//selected_elt.unbind("touchend");
+}

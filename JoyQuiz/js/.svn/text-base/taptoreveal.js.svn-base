@@ -1,0 +1,23 @@
+function swapImg(elem, filename, event){
+        
+    event.stopPropagation();        
+    
+    if (document.getElementById(elem).src != filename){
+        document.getElementById(elem).src = filename;                         
+    }
+}
+
+function showElement(elem){
+    if (document.getElementById(elem).style.display == 'none'){
+        document.getElementById(elem).style.display = 'block';                         
+    }
+}
+
+function showSingleOption(classToHide, idToShow){
+    var hideElems = document.querySelectorAll("."+classToHide);
+        
+    for (i = 0; i < hideElems.length; ++i) {        
+          hideElems[i].style.display='none';          
+    }  
+    document.getElementById(idToShow).style.display = 'block';                         
+}

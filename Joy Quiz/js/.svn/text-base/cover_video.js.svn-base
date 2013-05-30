@@ -1,0 +1,64 @@
+function showPoster(){
+    var video = document.getElementById("coverVideo");
+    
+    video.style.display = "none";
+        
+    document.getElementById("poster-overlay").style.display = 'block';
+    document.getElementById("poster-overlay").style.zIndex = '35';
+    $('.fadein-links').fadeIn(1000);
+}
+
+var intervalID;
+
+var becameInvisible = false;
+
+function reallyPlayVideo() {
+    var video = document.getElementById("coverVideo");
+    if(video.currentTime == 0.0 && !becameInvisible) {
+        video.load();
+        video.play();
+    }
+}
+
+function playVideo() {
+    var video = document.getElementById("coverVideo");
+    
+    video.style.visibility = 'visible';
+    video.style.display = 'block';    
+    
+    video.load();
+    document.getElementById("poster-overlay").style.display = 'none';
+    video.play();
+    intervalID = setInterval("checkVideoEnded()", 1000);
+    setTimeout(reallyPlayVideo, 2000);
+}
+
+function checkVideoEnded() {
+    var video = document.getElementById("coverVideo");
+    if (video.currentTime == video.duration) {
+        resetPage();
+        clearInterval(intervalID);
+    }
+}
+function noLinks() {
+    $('.fadein-links').hide();
+}
+
+function didBecomeInvisible() {
+    becameInvisible = true;
+    var video = document.getElementById("coverVideo");
+    video.load();
+    resetPage();
+}
+
+function resetPage() {
+    document.getElementById("poster-overlay").style.display = 'block';
+    $('.fadein-links').fadeIn(1000);
+}
+
+function checkVideoPaused() {
+    if (document.getElementById("coverVideo").paused) {
+        showPoster();
+    }
+}
+

@@ -1,0 +1,66 @@
+function selectMap(id) {
+    var pops = document.querySelectorAll('.pop');
+        
+    for (i = 0; i < pops.length; ++i) {        
+          pops[i].style.display='none';          
+    }        
+    pops[0].style.display='block'; 
+    document.getElementById(id).style.display="block";
+}
+
+function selectMapItem(id) {
+    var pops = document.querySelectorAll('.pop');
+        
+    for (i = 0; i < pops.length; ++i) {        
+          pops[i].style.display='none';          
+    }        
+    document.getElementById(id).style.display="block";
+}
+
+function selectItem(id) {
+var pops = document.querySelectorAll('.pop');
+        
+    for (i = 0; i < pops.length; ++i) {        
+          pops[i].style.display='none';          
+    }        
+    
+    document.getElementById(id).style.display="block";
+    showLinks();
+}
+
+function showLinks() {
+      var links = document.querySelectorAll('.links');
+      for (i = 0; i < links.length; ++i) {        
+            links[i].style.display='block';          
+      }
+}
+
+function closeItem(id) {
+    document.getElementById(id).style.display="none";
+}
+
+
+function showItem(id) {
+    document.getElementById(id).style.display="block";
+}
+
+function toggleLinks (disableClassName, enableClassName){
+      var disableLinks = document.querySelectorAll('.'+ disableClassName);
+      for (i = 0; i < disableLinks.length; ++i) {        
+          disableLinks[i].style.zIndex=0;          
+      }
+      var enableLinks = document.querySelectorAll('.'+ enableClassName);
+      for (i = 0; i < enableLinks.length; ++i) {        
+          enableLinks[i].style.zIndex=100;          
+      }
+}
+
+function displayOneOfSameClass(classname, id) {
+      var cn = document.querySelectorAll('.'+classname);
+        
+      for (i = 0; i < cn.length; ++i) {        
+          cn[i].style.display='none';          
+      }        
+    
+      document.getElementById(id).style.display="block";
+}

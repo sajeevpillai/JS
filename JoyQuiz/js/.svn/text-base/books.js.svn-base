@@ -1,0 +1,71 @@
+
+$(document).ready(function(){
+	
+	var i=0;
+	for(i=1; i < 6; ++i){
+	$(' #bk-button0'+i).bind('touchend', function threeBtnVal (){
+		//alert('tapped');
+		$('.oBtn').removeClass('justTapped');					  
+		$(this).addClass('justTapped');					  
+		//alert($(this).attr('class'));
+    });
+	}
+});             
+
+function showSpan(id){
+    $('span').hide();
+    $('#'+id).show();
+}
+
+
+var ReadUrls = {
+    "mBook1" :  "pages/ATreeGrowsinBrooklyn.html",
+    "mBook2" :  "pages/FearOfFlying.html",
+    "mBook3":   "pages/GeekLove.html",
+    "mBook4":  "",
+    "mBook5": ""
+};
+var ReadUrlTitles = {
+    "mBook1" :  "A Tree Grows in Brooklyn",
+    "mBook2" :  "Fear of Flying",
+    "mBook3":   "Geek Love",
+    "mBook4" :  "Crazy Salad",
+    "mBook5": "Almost Paradise"
+};
+
+function readBook(event) {
+	event.stopPropagation();
+	var PrdRefALL =  $('.justTapped').attr('class').split(' ');
+	var PrdRef = PrdRefALL[1];
+	var titles = PrdRef;
+	//alert(PrdRef +" "+ ReadUrlTitles[titles] +" "+ ReadUrls[titles]);
+	callIfTapped(event, 'modalOpen', [ReadUrlTitles[titles], ReadUrls[titles]]);
+	button_touch_end();
+}
+function buy(event) {
+	event.stopPropagation();     
+	var PrdRefALL =  $('.justTapped').attr('class').split(' ');
+    var PrdRef = PrdRefALL[1];
+	//alert(PrdRef);
+    productBuy(PrdRef); 
+    button_touch_end();    
+}
+function favorite(ev) {
+    ev.stopPropagation();     
+	var PrdRefALL =  $('.justTapped').attr('class').split(' ');
+    var PrdRef = PrdRefALL[1];
+	//alert(PrdRef);
+    favoriteOpen(PrdRef);
+    button_touch_end();
+}
+
+function share(ev) {
+     ev.stopPropagation();     
+   //alert('clicked' + $('.justTapped').attr('class'));
+	var PrdRefALL =  $('.justTapped').attr('class').split(' ');
+    var PrdRef = PrdRefALL[1];
+	//alert(PrdRef);
+    productShare(PrdRef);
+    button_touch_end();    
+}
+

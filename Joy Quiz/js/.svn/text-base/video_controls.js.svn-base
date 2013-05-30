@@ -1,0 +1,62 @@
+var intervalID = 0;
+
+function didBecomeInvisible(){
+     pauseMe(document.getElementById('wikfsVideo'));
+}
+
+function videoTapped(element) {
+    showControls();
+}
+
+function playFromStart(element) {
+    element.play();
+    element.addEventListener('touchend', togglePlayPause(element))
+}
+
+function playMe(element) {
+    if (element.currentTime == element.duration) {
+        element.load();
+    }
+    
+    document.getElementById('play_pause_control').src = "../images/btn_video_pause.png";
+    document.getElementById('play_pause_control').style.visibility = 'visible';
+    showControls();
+    document.getElementById('poster_play_control').style.visibility = 'hidden';
+    setTimeout('hideControls()', 3000);
+    intervalID = setInterval("checkVideoTime()", 1000);
+}
+
+function pauseMe(element) {
+    element.pause();
+    document.getElementById('play_pause_control').src = "../images/btn_video_play.png";
+    showControls();
+    setTimeout('hideControls()', 3000);
+    clearInterval(intervalID);
+}
+
+function togglePlayPause(element) {
+    alert('ola');
+    if (element.paused) {
+        playMe(element);
+    } else {
+        pauseMe(element);
+    }
+}
+
+function checkVideoTime() {
+    video = document.getElementById("wikfsVideo");
+    if (video.currentTime == video.duration) {
+        video.load();
+        document.getElementById('play_pause_control').style.visibility = 'hidden';
+        document.getElementById('poster_play_control').style.visibility = 'visible';
+        clearInterval(intervalID);
+    }
+}
+
+function hideControls() {
+    document.getElementById('play_pause_control').style.opacity = 0;
+}
+
+function showControls() {
+    document.getElementById('play_pause_control').style.opacity = 1;
+}

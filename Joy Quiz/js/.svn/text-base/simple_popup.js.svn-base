@@ -1,0 +1,59 @@
+function button(){
+  var x=document.getElementById("popup");
+  x.style.display="block";
+}
+function disappear(){
+  var x=document.getElementById("popup");
+  x.style.display="none";
+}
+
+function button2(){
+  var x=document.getElementById("popup2");
+  x.style.display="block";
+}
+function disappear2(){
+  var x=document.getElementById("popup2");
+  x.style.display="none";
+}
+
+function button3(){
+  var x=document.getElementById("popup3");
+  x.style.display="block";
+}
+function disappear3(){
+  var x=document.getElementById("popup3");
+  x.style.display="none";
+}
+
+function button4(){
+  var x=document.getElementById("popup4");
+  x.style.display="block";
+}
+function disappear4(){
+  var x=document.getElementById("popup4");
+  x.style.display="none";
+}
+
+function button5(){
+  var x=document.getElementById("popup5");
+  x.style.display="block";
+}
+function disappear5(){
+  var x=document.getElementById("popup5");
+  x.style.display="none";
+}
+
+function buttonf(){
+  var x=document.getElementById("popup");
+  x.style.display="block";
+}
+function disappearf(){
+  var x=document.getElementById("popup");
+  x.style.display="none";
+  var y=document.getElementById("fash_btn");
+  y.setAttribute('src', '..\/images\/fashion_shop.png');
+}
+
+function hideParent(elem){
+    var el = elem.parentNode.style.display = "none";
+}

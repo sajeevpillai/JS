@@ -1,0 +1,47 @@
+$(document).ready(function(){
+	$('a').bind('touchend', function threeBtnVal (){
+		$('.oBtn').removeClass('justTapped');					  
+		$(this).addClass('justTapped');					  
+	});
+});
+function swapImg(elem, filename, showSpan, event){        
+    event.stopPropagation();        
+	var allspan = document.getElementsByTagName('span');
+	for (i=0; i < allspan.length;i++) {
+		allspan[i].style.display = "none";
+		}
+	document.getElementById(showSpan).style.display = "block";
+
+    if (document.getElementById(elem).src != filename){
+        document.getElementById(elem).src = filename; 
+    }
+}
+var BuyUrls = {
+    "stacking_bowls" : "http://homelist12may12.theoprahmag.com",
+    "juicer" : "http://homelist13may12.theoprahmag.com",
+    "porcelain_tableware" : "http://homelist14may12.theoprahmag.com",
+    "recipe_box" : "http://homelist15may12.theoprahmag.com",
+    "cookware_set" : "http://homelist16may12.theoprahmag.com",
+    "oven_mitts" : "http://homelist17may12.theoprahmag.com",
+    "knife_set" : "http://homelist18may12.theoprahmag.com",
+    "dish_set" : "http://homelist19may12.theoprahmag.com",
+    "glass_carafes" : "http://homelist20may12.theoprahmag.com",
+    "food_cover" : "http://homelist21may12.theoprahmag.com",
+    "pouring_bowls" : "http://homelist22may12.theoprahmag.com",
+};
+function buy(event) {
+	var PrdRefALL =  $('.justTapped').attr('class').split(' ');
+    var PrdRef = PrdRefALL[1];
+	event.stopPropagation();     
+    modalOpenWithURL(BuyUrls[PrdRef]); 
+}
+function favorite(ev) {
+	var PrdRef =  $('.justTapped').attr('class').split(' ');
+    ev.stopPropagation();     
+    favoriteOpen(PrdRef[1]);
+}
+function share(ev) {
+	var PrdRef =  $('.justTapped').attr('class').split(' ');
+    ev.stopPropagation();     
+    productShare(PrdRef[1]);
+}

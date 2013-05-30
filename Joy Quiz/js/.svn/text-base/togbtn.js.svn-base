@@ -1,0 +1,11 @@
+function togbtn(id){
+$('.togbtn').css("visibility","visible");
+$('.togbtn').css("z-index","3");
+$('#'+ id).css("z-index","1");
+$('#'+ id).css("visibility","hidden");
+}
+
+
+function makeVisible(id){
+    document.getElementById(id).style.visibility="visible";
+}

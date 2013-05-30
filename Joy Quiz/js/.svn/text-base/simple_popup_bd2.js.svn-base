@@ -1,0 +1,15 @@
+function selectItem(id) {
+var pops = document.querySelectorAll('.pop');
+        
+    for (i = 0; i < pops.length; ++i) {        
+          pops[i].style.display='none';          
+    }        
+    
+    document.getElementById(id).style.display="block";
+    bd.style.display="block";
+}
+
+function closeItem(id) {
+    document.getElementById(id).style.display="none";
+    bd.style.display="none";
+}
