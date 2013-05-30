@@ -1,3 +1,0 @@
-window.onload = function(){
-    new AC.VR('viewer3', '../images/conf360/conf_0##.jpg', 12, {initialPos: [0,0], invert: false});
-};

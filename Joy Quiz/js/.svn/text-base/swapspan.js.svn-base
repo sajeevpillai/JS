@@ -1,7 +1,0 @@
-	function swapSpan(id) {
-		var allspan = document.getElementsByTagName('span');
-		 for (i=0; i < allspan.length;i++) {
-		 	allspan[i].style.display = "none";
-			}
-		document.getElementById(id).style.display = "block";
-	}

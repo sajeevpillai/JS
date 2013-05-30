@@ -1,7 +1,0 @@
-  $(document).ready(function(){
-		$('#scrollable').flickable({
-			section: 'img',
-			elasticConstant: 0.4,
-			friction: 0.0
-		});
-  });
