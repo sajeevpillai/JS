@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>O Magazine - Joy Quiz</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css"/>
+    <script type="text/javascript" src="../js/common.js" ></script>
+    <script type="text/javascript" src="../js/joy_piechart.js" ></script>
+    <style>
+            @font-face {
+                font-family: Miller;
+                src: url("../fonts/MillerDailyOne-Italic.otf") format("opentype");
+            }
+
+            @font-face {
+                font-family: Miller;
+                font-weight: bold;
+                src: url("../fonts/MillerDailyOne-Italic.otf") format("opentype");
+            }
+            .chartpage{position: relative; width: 768px; height: auto;}
+            #page_01{top:0px;}
+            #page_02{top:1890px;}
+            #main_img{position:absolute; top:0px; left:0px; width: auto; height:auto}
+            .activities, .fun_activities{position:absolute;  width: 260px; }
+            .activities_left, .fun_activities_left{left: 98px;}
+            .activities_right, .fun_activities_right{left: 456px;}
+            .titles, .fun_titles{position:absolute; left:1px; width:187px; border:none;  background-image:url("../images/input-background.png")}
+            .times, .fun_times{position:absolute; left:227px; width:35px; border:none;  }
+            #activity_01, #activity_06{top:330px;}
+            #activity_02, #activity_07{top:378px;}
+            #activity_03, #activity_08{top:425px;}
+            #activity_04, #activity_09{top:473px;}
+            #activity_05, #activity_misc{top:521px;}
+            #fun_activity_01, #fun_activity_08{top:285px;}
+            #fun_activity_02, #fun_activity_09{top:333px;}
+            #fun_activity_03, #fun_activity_10{top:380px;}
+            #fun_activity_04, #fun_activity_11{top:428px;}
+            #fun_activity_05, #fun_activity_12{top:475px;}
+            #fun_activity_06, #fun_activity_13{top:522px;}
+            #fun_activity_07, #fun_activity_misc{top:570px;}
+            .btns{position:absolute; top: 571px;}
+            #calculate_btn{left: 249px; width: 155px; height: 45px;}
+            #clear_btn{left: 421px; width: 100px; height: 45px;}
+            .fun_btns{position:absolute; top: 624px;}
+            #fun_calculate_btn{left: 249px; width: 155px; height: 45px;}
+            #fun_clear_btn{left: 421px; width: 100px; height: 45px;}
+            .act_imgs{position: absolute; top: 756px; left: 202px;}
+            .act_imgs{
+                opacity:0;
+                -webkit-transition: opacity 1s;
+            }
+            .fun_act_imgs{position: absolute; top: 811px; left: 202px;}
+            .fun_act_imgs{
+                opacity:0;
+                -webkit-transition: opacity 1s;
+            }
+            input{font-family:Miller, Helvetica, Verdana; font-size:14px; border:none; height:15px; margin:0; padding: 0}
+            .loves{position:absolute; border:none;  background-image:url("../images/input-background.png"); border:0px red solid}
+            #love_01{top: 1471px;left: 355px; width:329px; }
+            #love_02{top: 1507px;left: 310px; width:374px; }
+            #love_03{top: 1544px;left: 390px;width: 295px }
+            #love_04{top: 1579px;left: 467px; width:218px; } 
+            #love_05{top: 1617px;left: 317px;width: 367px; }
+            #love_06{top: 1654px;left: 285px;width: 399px; }
+            #love_07{top: 1690px;left: 386px;width: 299px; }
+            #love_08{top: 1727px;left: 386px;width: 300px; }
+            #love_09{top: 1764px;left: 341px;width: 344px; }
+            #love_10{top: 1800px;left: 282px;width: 402px;}
+            #email_btn{position: absolute; width: 155px; height: 45px; top: 1545px; left: 307px;}
+            .error_divs{position:absolute; display:none; top:544px; left:222px;}
+            #fun_error_div{top:591px;}
+    </style>
+    </head>
+    <body>
+      <div class="chartpage" id="page_01">
+        <img id="main_img" src="../images/joy_main01.jpg"/>
+        <span id="activity_01" class="activities activities_left">
+            <input id="title_01" class="titles" type="text" name="title_01" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_01" class="times" type="number" min="1" max="24" name="time_01" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_02" class="activities activities_left">
+            <input id="title_02" class="titles" type="text" name="title_02" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_02" class="times" type="number" min="1" max="24" name="time_02" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_03" class="activities activities_left">
+            <input id="title_03" class="titles" type="text" name="title_03" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_03" class="times" type="number" min="1" max="24" name="time_03" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_04" class="activities activities_left">
+            <input id="title_04" class="titles" type="text" name="title_04" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_04" class="times" type="number" min="1" max="24" name="time_04" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_05" class="activities activities_left">
+            <input id="title_05" class="titles" type="text" name="title_05" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_05" class="times" type="number" min="1" max="24" name="time_05" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_06" class="activities activities_right">
+            <input id="title_06" class="titles" type="text" name="title_06" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_06" class="times" type="number" min="1" max="24" name="time_06" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_07" class="activities activities_right">
+            <input id="title_07" class="titles" type="text" name="title_07" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_07" class="times" type="number" min="1" max="24" name="time_07" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_08" class="activities activities_right">
+            <input id="title_08" class="titles" type="text" name="title_08" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_08" class="times" type="number" min="1" max="24" name="time_08" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_09" class="activities activities_right">
+            <input id="title_09" class="titles" type="text" name="title_09" value="" ontouchend="event.stopPropagation();"/>
+            <input id="time_09" class="times" type="number" min="1" max="24" name="time_09" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="activity_misc" class="activities activities_right">
+            <input id="time_misc" class="times" type="number" min="1" max="24" name="time_misc" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <a id="calculate_btn" class="btns" ontouchend="event.stopPropagation();" onclick="calculateActivites();"></a>
+        <a id="clear_btn" class="btns" ontouchend="event.stopPropagation();" onclick="resetActivities('reg');"></a>
+        <div id="error_div" class="error_divs" ontouchend="event.stopPropagation();" onclick="displayNone('error_div');">
+            <img id="error_msg" src="../images/joy_error_message2.png" />
+        </div>
+        <img id="act_img_01" class="act_imgs" src="../images/joy_piechart/act01_00.png" />
+        <img id="act_img_02" class="act_imgs" src="" />
+        <img id="act_img_03" class="act_imgs" src="" />
+        <img id="act_img_04" class="act_imgs" src="" />
+        <img id="act_img_05" class="act_imgs" src="" />
+        <img id="act_img_06" class="act_imgs" src="" />
+        <img id="act_img_07" class="act_imgs" src="" />
+        <img id="act_img_08" class="act_imgs" src="" />
+        <img id="act_img_09" class="act_imgs" src="" />
+        <img id="act_img_misc" class="act_imgs" src="" />
+        
+        <input id="love_01" class="loves" type="text" name="love_01" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_02" class="loves" type="text" name="love_02" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_03" class="loves" type="text" name="love_03" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_04" class="loves" type="text" name="love_04" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_05" class="loves" type="text" name="love_05" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_06" class="loves" type="text" name="love_06" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_07" class="loves" type="text" name="love_07" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_08" class="loves" type="text" name="love_08" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_09" class="loves" type="text" name="love_09" value="" ontouchend="event.stopPropagation();"/>
+        <input id="love_10" class="loves" type="text" name="love_10" value="" ontouchend="event.stopPropagation();"/>
+      </div>
+      <div class="chartpage" id="page_02">
+        <img id="main_img" src="../images/joy_main02.jpg"/>
+        <span id="fun_activity_01" class="fun_activities fun_activities_left">
+            <input id="fun_title_01" class="fun_titles" type="text" name="fun_title_01" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_01" class="fun_times" type="number" min="1" max="24" name="fun_time_01" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_02" class="fun_activities fun_activities_left">
+            <input id="fun_title_02" class="fun_titles" type="text" name="fun_title_02" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_02" class="fun_times" type="number" min="1" max="24" name="fun_time_02" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_03" class="fun_activities fun_activities_left">
+            <input id="fun_title_03" class="fun_titles" type="text" name="fun_title_03" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_03" class="fun_times" type="number" min="1" max="24" name="fun_time_03" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_04" class="fun_activities fun_activities_left">
+            <input id="fun_title_04" class="fun_titles" type="text" name="fun_title_04" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_04" class="fun_times" type="number" min="1" max="24" name="fun_time_04" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_05" class="fun_activities fun_activities_left">
+            <input id="fun_title_05" class="fun_titles" type="text" name="fun_title_05" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_05" class="fun_times" type="number" min="1" max="24" name="fun_time_05" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_06" class="fun_activities fun_activities_left">
+            <input id="fun_title_06" class="fun_titles" type="text" name="fun_title_06" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_06" class="fun_times" type="number" min="1" max="24" name="fun_time_06" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_07" class="fun_activities fun_activities_left">
+            <input id="fun_title_07" class="fun_titles" type="text" name="fun_title_07" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_07" class="fun_times" type="number" min="1" max="24" name="fun_time_07" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_08" class="fun_activities fun_activities_right">
+            <input id="fun_title_08" class="fun_titles" type="text" name="fun_title_08" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_08" class="fun_times" type="number" min="1" max="24" name="fun_time_08" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_09" class="fun_activities fun_activities_right">
+            <input id="fun_title_09" class="fun_titles" type="text" name="fun_title_09" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_09" class="fun_times" type="number" min="1" max="24" name="fun_time_09" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_10" class="fun_activities fun_activities_right">
+            <input id="fun_title_10" class="fun_titles" type="text" name="fun_title_10" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_10" class="fun_times" type="number" min="1" max="24" name="fun_time_10" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_11" class="fun_activities fun_activities_right">
+            <input id="fun_title_11" class="fun_titles" type="text" name="fun_title_11" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_11" class="fun_times" type="number" min="1" max="24" name="fun_time_11" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_12" class="fun_activities fun_activities_right">
+            <input id="fun_title_12" class="fun_titles" type="text" name="fun_title_12" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_12" class="fun_times" type="number" min="1" max="24" name="fun_time_12" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_13" class="fun_activities fun_activities_right">
+            <input id="fun_title_13" class="fun_titles" type="text" name="fun_title_13" value="" ontouchend="event.stopPropagation();"/>
+            <input id="fun_time_13" class="fun_times" type="number" min="1" max="24" name="fun_time_13" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <span id="fun_activity_misc" class="fun_activities fun_activities_right">
+            <input id="fun_time_misc" class="fun_times" type="number" min="1" max="24" name="fun_time_misc" value="" ontouchend="event.stopPropagation();"/>
+        </span>
+        <a id="fun_calculate_btn" class="fun_btns" ontouchend="event.stopPropagation();" onclick="calculateFunActivites();"></a>
+        <a id="fun_clear_btn" class="fun_btns" ontouchend="event.stopPropagation();" onclick="resetActivities('fun');"></a>
+        <div id="fun_error_div" class="error_divs" ontouchend="event.stopPropagation();" onclick="displayNone('fun_error_div');">
+            <img id="fun_error_msg" src="../images/joy_error_message.png" />
+        </div>
+        <img id="fun_act_img_01" class="fun_act_imgs" src="../images/joy_piechart/act01_00.png" />
+        <img id="fun_act_img_02" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_03" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_04" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_05" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_06" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_07" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_08" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_09" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_10" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_11" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_12" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_13" class="fun_act_imgs" src="" />
+        <img id="fun_act_img_misc" class="fun_act_imgs" src="" />
+        <a id="email_btn" ontouchend="event.stopPropagation(); productShare('joyQuiz');"></a>
+      </div>
+    </body>
+</html>

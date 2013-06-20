@@ -1,0 +1,89 @@
+jQuery(document).ready(function() {
+	is_showing = false;
+    jQuery('.popup_link').bind("touchend", 
+		function( event ){
+          event.stopPropagation();
+        }
+    )
+	jQuery('.popup_link').click(
+		function( event ){
+			var this_elt = jQuery(this);
+			event.preventDefault();
+			event.stopPropagation();
+
+			//var touch = window.event.targetTouches[0]; 
+			//var a_top = touch.pageY;
+
+			// remove the popup if already showing
+			if (is_showing){
+				jQuery('#popup').fadeOut(0).delay(1000);
+				jQuery(this).closest('a').toggleClass('rel');
+				is_showing = false;
+				is_PopOverShowing = false;
+				event.stopPropagation();
+				return false;
+			}
+
+			// create the popup div
+			if (jQuery("#popup").length > 0) {
+				jQuery('#popup').remove();
+			};
+			jQuery('body').append('<div id="popup" class="hide"></div>');
+			jQuery(this).closest('a').toggleClass('rel');
+
+			//$('#popup').css("top",a_top-100);
+			//$('#popup').css("left",a_left);
+			//var thisPage = $(this).closest('.page_break').attr('id');
+
+			// center popup vertically and regardless of pagination position
+			//var pageString = thisPage.split("page");
+			//var pageNumber = pageString[1];
+			//pageNumberInt = pageNumber*1;
+			jQuery('#popup').css("top",175);
+			jQuery('#popup').css("left",170);
+
+			// add the image to the popup
+			var img_tag  = "<img src="+this_elt.attr('img')+" id='imageid' />";
+
+			// add the caption to the popup
+			var a_title = this_elt.attr('title');
+			var popup_before = "<div id='close'></div><table cellspacing='0' id='outerImageContainer' ontouchend='event.stopPropagation();'><tbody><tr><td class='tl'></td><td class='tc'></td><td class='tr'></td></tr><tr><td class='ml'></td><td id='lightboxFrameBody'><div id='imageContainer'>";
+			popup_before = popup_before + img_tag;
+			popup_before = popup_before + "</div><div id='imageDataContainer' class='clearfix'><div id='imageData'><div id='imageDetails'></div><div id='caption'>"+a_title+"</div></div></div></td><td class='mr'></td></tr><tr><td class='bl'></td><td class='bc'></td><td class='br'></td></tr></tbody></table>";
+			jQuery('#popup').append(popup_before);
+
+			// add the popup to the page
+			jQuery('#popup').appendTo(this);
+			
+			// fade in the popup
+			jQuery('#popup').fadeIn(0);
+			is_showing = true;
+			is_PopOverShowing = true;
+
+			// keep the page from moving around on move
+			jQuery(this).bind("touchmove",
+				function( event ){
+					event.preventDefault();
+				});
+
+			// try to stop it from moving on
+			// for some reason the delay is VERY helpful in killing the event.  Go figure.  
+			// pausecomp(200);
+			return false;
+	});
+
+	// keep the screen from scrolling
+	//var onATouchMove = function( event ){
+	//	event.preventDefault();
+	//};
+	
+	// simple delay routine
+	function pausecomp(millis) {
+		var date = new Date();
+		var curDate = null;
+
+		do { curDate = new Date(); } 
+		while(curDate-date < millis);
+	}
+
+});

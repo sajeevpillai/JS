@@ -1,0 +1,38 @@
+
+$(document).ready(function(){
+    //$(".gg_main1 img").attr("src", data.products[active_product_id]['large_image']);
+    if (active_product_id == undefined) {
+        active_product_id = data.product_order[0];
+    }
+    pageMenu.init(data, active_product_id);
+});
+
+
+var pageMenu = {
+    init : function(products, product_id){
+        
+        for (var index = 0; index < products.product_order.length; index += 1){
+            $("img#" + products.product_order[index]).attr("src", products.products[products.product_order[index]]['menu_image']);
+        }
+        this.select_product(products, product_id);
+    },
+
+    show_content_for_product : function(products, product_id){
+        this.unselect_all_products(products);
+        this.select_product(products, product_id);
+    },
+    
+    select_product : function(products, product_id){
+        active_product_id = product_id; //global
+        $("#"+product_id).attr("src", products.products[product_id]["menu_image_selected"]);
+        $("#" + products.products[product_id]["content_div_id"]).show();
+        $("#gg_img_main").attr("src", products.products[product_id]["large_image"]);
+    },
+    
+    unselect_all_products : function(products){
+        $(".gg_menu_button").each(function(index){                                      
+            $("#" + $(this).attr("id") + "_content").hide();                            
+            $(this).attr("src", products.products[$(this).attr("id")].menu_image);             
+        });
+    }
+}

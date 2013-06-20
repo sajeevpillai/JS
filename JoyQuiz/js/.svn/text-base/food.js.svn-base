@@ -1,0 +1,15 @@
+$(document).ready(function(){
+	$('a').bind('touchend', function threeBtnVal (){
+		$('.oBtn').removeClass('justTapped');					  
+		$(this).addClass('justTapped');					  
+	});
+});
+
+function favorite(ev) {
+    ev.stopPropagation();     
+    favoriteOpen(PrdRef[1]);
+}
+function share(ev) {
+    ev.stopPropagation();     
+    productShare(PrdRef[1]);
+}

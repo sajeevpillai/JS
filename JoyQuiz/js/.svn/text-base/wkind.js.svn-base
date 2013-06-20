@@ -1,0 +1,146 @@
+  function textCounter(e, theField, maxChars, maxLines, maxPerLine){
+  	var strTemp = "";
+  	var strLineCounter = 0;
+  	var strCharCounter = 0;
+  	var bStatus = true;
+
+  	for (var i = 0; i < theField.value.length; i++){
+  		var strChar = theField.value.substring(i, i + 1);
+
+  		if (strChar == '\n'){
+  			strTemp += strChar;
+  			strCharCounter = 1;
+  			strLineCounter += 1;
+  		}
+  		else if (strCharCounter == maxPerLine)
+  		{
+  			strTemp += '\n' + strChar;
+  			strCharCounter = 1;
+  			strLineCounter += 1;
+  		}	
+  		else{
+  			strTemp += strChar;
+  			strCharCounter ++;
+  		}
+  	}
+
+    if ((e.keyCode == 13) && (strLineCounter >= (maxLines - 1))){
+      return false;
+    }
+
+    if ((maxLines - strLineCounter) == 0){
+      theField.value = theField.value.substring(0, theField.value.length-1); 
+    }
+
+    return bStatus;
+  }
+
+  function getPageData(val) {
+      var url = 'sm://getpagedata/' + encodeURIComponent(JSON.stringify(val));
+      window.location.href = url;
+  }
+
+  function savePageData(val) {
+      var url = 'sm://savepagedata/' + encodeURIComponent(JSON.stringify(val));
+      window.location.href = url; 
+  }
+  
+  function onClearAll(e, page_id){
+      var i=0;
+        PageData  = {
+              pageId: '',
+              val: {}
+          };
+      PageData.pageId = page_id;
+                  
+      /* clear out all the input values and the stored values.  */
+      var inputs = document.getElementsByName('inputs');
+      for (i=0; i<inputs.length; i++){
+            inputs[i].value = " ";
+            PageData.val[inputs[i].id] = " ";
+      }
+      clearRightImgs();
+      PageData.val['right_imgs_div'] =  document.getElementById('right_imgs_div').innerHTML;
+      savePageData(PageData);
+      blurInput(page_id);
+      e.stopPropagation();
+  }
+  
+  function clearRightImgs(){
+      var imgs = document.querySelectorAll('.right_imgs');
+      for (i=0; i<imgs.length; i++){
+            if (imgs[i].className.match(new RegExp('(\\s|^)display(\\s|$)')) ){
+                imgs[i].classList.remove('display');                 
+            }
+      }  
+  }
+  
+    function onSaveAll(e, page_id){
+      var PageData  = {
+                pageId: '',
+                val: {}
+            };
+      PageData.pageId = page_id;
+
+      var inputs = document.getElementsByName('inputs');
+      for (i=0; i<inputs.length; i++){
+            PageData.val[inputs[i].id] = inputs[i].value;
+      }
+      PageData.val['right_imgs_div'] =  document.getElementById('right_imgs_div').innerHTML;
+      savePageData(PageData);
+      blurInput(page_id);
+      e.stopPropagation();
+  }
+  
+  
+  var loaded = false;
+  function loadDataForPage(obj){
+    try{
+      var inputs = document.getElementsByName('inputs');
+      if (obj && ("val" in obj) && !loaded){
+            for (i=0; i<inputs.length; i++){
+                  document.getElementById(inputs[i].id).value = obj.val[inputs[i].id];
+            }
+            document.getElementById('right_imgs_div').innerHTML = obj.val['right_imgs_div'];
+            loaded = true;
+      }else{
+            for (i=0; i<inputs.length; i++){
+                  document.getElementById(inputs[i].id).value = " ";
+            }
+      }
+
+    }catch(err){
+      alert(err.message);
+    }
+  }  
+  
+  function blurInput(page_id){
+      var inputs = document.getElementsByName('inputs');
+      for (i=0; i<inputs.length; i++){
+            inputs[i].blur();
+      }
+  }
+  
+  function deactivateInput(){
+    var inputs = document.getElementsByName('inputs');
+    for (i=0; i<inputs.length; i++){
+            inputs[i].disabled=true;
+    }  
+  }
+  
+  function activateInput(){
+    //document.getElementById('text4').disabled=false;
+    //document.getElementById('text4').removeAttribute('disabled');
+    var inputs = document.getElementsByName('inputs');
+    for (i=0; i<inputs.length; i++){
+            inputs[i].disabled=false;
+    }  
+  }
+  
+  function toggleAddDisplay(id){
+      if (document.getElementById(id).className.match(new RegExp('(\\s|^)display(\\s|$)')) ){
+            document.getElementById(id).classList.remove('display');                 
+      } else {
+            document.getElementById(id).classList.add('display');;
+      }
+  }
