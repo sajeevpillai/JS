@@ -7,6 +7,8 @@
         <link rel="stylesheet" type="text/css" href="../css/style.css"/>
         <script type="text/javascript" src="../js/jquery-1.6.1.min.js" ></script>
         <script type="text/javascript" src="../js/jquery.backgroundPosition.js" ></script>         
+        <script type="text/javascript" src="../js/uniberg.js" ></script>
+        <script type="text/javascript" src="../js/notemark.js" ></script> 
         <script type="text/javascript" src="../js/common.js"></script>
         <script type="text/javascript">
             $(function(){
@@ -32,13 +34,19 @@
             });
             
             function getForwardOffset(){
-                if (parseInt(($('#wheel').css('background-position-y')).replace('px','')) != 0){
-                    var pos = parseInt(($('#wheel').css('background-position-y')).replace('px',''));
+		var backgroundPos = $('#wheel').css('background-position').split(" ");
+		//now contains an array like ["0%", "50px"]
+
+		var xPos = backgroundPos[0],
+		    yPos = backgroundPos[1];
+                if (parseInt(yPos.replace('px','')) != 0){
+		    var pos = parseInt(yPos);
                     return pos + 8901 - (pos % 4451);
                 }else{
                     return  8901;
                 }
             }
+
             
             function spinWheel(pos){
                 var newPos;
