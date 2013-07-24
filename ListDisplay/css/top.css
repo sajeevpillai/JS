@@ -1,0 +1,116 @@
+/**************************************************************************************************
+
+ This file contains styles for the topmost header, navigation, and subnavigation bars which are
+ present at the top of all CMS pages.
+
+**************************************************************************************************/
+
+
+/*********************************/
+/*********** STRUCTURE ***********/
+/*********************************/
+
+#top { color: #fff; }
+
+
+/*******************************/
+/*********** HEADER ***********/
+/*******************************/
+/*
+  Topmost header containing the logo, CMS title, and logout link. Logo and title are floated left,
+  logout link is floated right. Logo is forced to height of 6ems (72px) which allows text to be
+  vertically centered via the line height property. This must be rewritten if any text here should
+  ever run to more than one line (which it shouldn't).
+*/
+
+#header {
+  overflow: hidden;
+  clear: both;
+  padding: 2em;
+}
+
+#logo { float: left; }
+#logo img { height: 6em; }
+#title {
+  float: left;
+  line-height: 4em;
+  margin-left: 1em;
+  font-size: 18px;
+}
+#logout { float: right; line-height: 6em; }
+
+
+/**************************************/
+/*********** ALL NAVIGATION ***********/
+/**************************************/
+/* Classes which are used in both the main and sub navigation bars. General aethetics. */
+
+.nav-item {
+  float: left;
+  border-right: 1px solid black;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.nav-item:hover, .nav-item:active {
+  -webkit-box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: inset 0px 2px 6px 1px rgba(0, 0, 0, 0.3);
+}
+.nav-item:hover { background: #7a7a7a; }
+.nav-item:active { background: #6a6a6a; }
+#nav .nav-item { font-size: 18px; }
+#subnav .nav-item { font-size: 14px; }
+
+/* Gives height to the subnavigation bar. Can be used as a filler/spacer item in either nav bar. */
+.spacer-item {
+  float: none;
+  width: 1px;
+  padding: 1em 0;
+  border: none;
+}
+
+/* Adds left border to navigational items. Nav items by default have a right border. */
+.first-item { border-left: 1px solid black; }
+
+#top a { color: #fff; text-decoration: none; }
+
+
+/***************************************/
+/*********** MAIN NAVIGATION ***********/
+/***************************************/
+/* Styles for main nav bar. */
+
+#nav {
+  overflow: hidden;
+  clear: left;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding-left: 2em;
+}
+
+
+/*************************************/
+/*********** SUBNAVIGATION ***********/
+/*************************************/
+/*
+  Styles for subnavigation bar. Subnavigation items depend on main navigational items for their
+  positioning. Each "grouping" of subnav items is absolutely positioned with hardcoded pixel values 
+  within a relatively positioned "holder" bar. If the contents of the main navigation bar
+  change, these values need to be instead calculated by JavaScript and dynamically set. This will
+  obviously have to happen once we get to phase two of this project.
+*/
+
+#subnav {
+  border-bottom: 1px solid black;
+  position: relative;
+}
+
+#sub-config, #sub-users, #sub-admin {
+  position: absolute;
+  clear: left;
+  top: 0;
+}
+
+#sub-users { left: 111px; }
+#sub-config { left: 335px; }
+#sub-admin { left: 527px; }

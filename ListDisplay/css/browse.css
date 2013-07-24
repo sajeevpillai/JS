@@ -1,0 +1,102 @@
+/**************************************************************************************************
+
+ This file contains styles for browse pages, and includes elements such as search boxes,
+ pagination elements, and tabulated lists of data.
+
+**************************************************************************************************/
+
+p#error {
+  font-size: 14px;
+  color: red;
+  font-weight: bold;
+  margin: 1em 0;
+}
+
+/**********************************/
+/*********** PAGINATION ***********/
+/**********************************/
+
+/* Pagination module that lists total number of items returned, total pages, and number per page. */
+
+/* One of these goes at the bottom and top of the page. */
+.pagination {
+  padding: 0 2em;
+  margin-bottom: 2em;
+  overflow: hidden;
+  clear: left;
+  line-height: 2em;
+}
+
+img.go-prev-page { margin-right: 12px; }
+img.go-next-page { margin-left: 12px; }
+
+/* The three elements that float within the .pagination element. */
+#total-items, .paging, #num-per-page {
+  float: left;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#total-items { width: 25%; font-size: 20px; }
+
+.paging { 
+  width: 50%;
+  text-align: center;
+  color: #797979;
+}
+.paging-bottom { width: 100%; }     /* Bottom-specific style. */
+.paging span.blk { color: #000; }
+
+#num-per-page { width: 25%; text-align: right; }
+
+
+/******************************/
+/*********** TABLES ***********/
+/******************************/
+
+/* The table that holds the data that's being browsed. */
+
+table#browselist {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+  padding: 0;
+  margin: 0 0 2em 0;
+  font-size: 14px;
+}
+
+table#browselist tr, table#browselist td, table#browselist th { padding: 1em; }
+
+table#browselist th {
+  border: 1px solid black;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.alternator-gray { background-color: #ededed; }
+
+.miniholder { clear: left; }
+.miniholder a { text-decoration: none; }
+
+.customminibutton {
+  float: left;
+  height: 24px;
+  line-height: 24px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #444;
+  padding: 0 1.5em;
+  margin-right: 2em;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #d8d8d8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#d8d8d8));
+  background: -moz-linear-gradient(#ededed, #d8d8d8);
+  cursor: pointer;
+}
+.customminibutton:hover { background: #ddd; }
+.customminibutton:active { background: #c8c8c8; }

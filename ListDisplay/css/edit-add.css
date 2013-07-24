@@ -1,0 +1,243 @@
+/**************************************************************************************************
+
+  Styles for the various edit/add screens in the CMS. Many of the elements on these pages are
+  reusable across different edit pages; those that are not have been noted and put in their own 
+  sections of this file.
+
+**************************************************************************************************/
+
+
+/***********************************/
+/*********** EDIT GLOBAL ***********/
+/***********************************/
+
+.breadcrumb { margin-bottom: 3em; }
+.breadcrumb img { margin: 0 1em; }
+
+/* The basic building blocks of an edit/add page: the lefthand label and righthand field divs. */
+.item-holder {
+  overflow: hidden;
+  clear: left;
+  margin-bottom: 2em;
+}
+
+.label-left {
+  width: 9em;
+  font-size: 16px;
+  font-weight: bold;
+  color: #444;
+  float: left;
+}
+
+.field-right {
+  float: left;
+}
+
+.bordered-holder {
+  border: 1px solid #c7c7c7;
+  padding: 1.5em;
+  background: #fff;
+}
+
+span.extra-label {
+  font-size: 12px;
+  font-weight: normal;
+}
+
+/* A second horizontal field: in this case, the icon uploading field. */
+/* FIX: would prefer no margins to be a first-child style. */
+.second-stack { margin-left: 2em; }
+
+/*--- DATE MODULES ---*/
+.date-label { width: 3em; }
+.date-text, .time-text { width: 2em; }
+.year-text { width: 3.5em; }
+
+
+/****************************************/
+/*********** ITEM EDIT SCREEN ***********/
+/****************************************/
+
+.title { font-size: 2em; font-weight: bold; }
+.georgia {
+  font-size: 1.25em;
+  font-family: Georgia, serif;
+  margin: 0 1em;
+  color: #555;
+  font-style: oblique;
+}
+.author { font-size: 1.5em; font-weight: bold; }
+
+.uneditable {
+  border: 1px solid #c7c7c7;
+  background: #ededed;
+  padding: 2em 2em 0 2em;
+  margin-bottom: 2em;
+}
+
+/*--- CATEGORIES ---*/
+
+.category-holder { width: 360px; padding: 1.5em 0.5em 0.5em 1.5em; }
+
+.category {
+  height: 1.5em;
+  line-height: 1.5em;
+  color: #444;
+  padding: 0 0.5em;
+  margin-right: 1em;
+  border-radius: 4px;
+  background-color: #ededed;
+  border: 1px solid #bdbdbd;
+  overflow: hidden;
+  float: left;
+  margin-bottom: 1em;
+}
+
+.category div { float: left; margin: 0 0.5em;}
+.category div img { display: block; }
+
+/*--- PRICING ---*/
+
+.pricing .float-section { height: 3em; } /* FIX */
+
+.flag img { display: block; margin-top: 1em; }
+
+.territory-name { width: 12em; }
+
+.price-entry, .price-entry input { width: 7em; text-align: right; }
+
+/*--- DESCRIPTIONS ---*/
+
+.desc-textarea {
+  width: 45em;
+  height: 17em;
+  border: 1px solid #c7c7c7;
+}
+
+/*--- COVER ---*/
+
+#removebtn {
+  height: 36px;
+  line-height: 36px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #444;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #d8d8d8;
+  background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#d8d8d8));
+  background: -moz-linear-gradient(#ededed, #d8d8d8);
+  cursor: pointer;
+  margin: 1em auto 0 auto;
+  text-align: center;
+  width: 100px;
+}
+#removebtn:hover { background: #ddd; }
+#removebtn:active { background: #c8c8c8; }
+
+
+
+/*--- Non-Inventory CMS Styles ---*/
+
+.wide-input {
+  font-size: 1.00em;
+  height:2.5em;
+  width:250px;
+}
+
+.wide-input:focus {
+  background-color: lightyellow;
+}
+
+.required {color:red;}
+
+.bordered-fieldname {
+  border: 1px solid #c7c7c7;
+  background: #fff;
+  padding:0 0 1.5em 1.5em;
+}
+
+.caption {font-size:0.88em; color:#a7a7a7;}
+
+.action-button-section {
+	width:9.38em;
+	margin:0 0 2.50em 0;
+	padding:0;
+	display:table-cell;
+}
+
+.table-list {
+	display:table;
+	margin:0;
+	padding:0;
+	width:100%;
+	border: 1px solid #c7c7c7;
+}
+.table-header {
+	margin:0;
+	padding:0;
+	color:#343434;
+}
+
+.table-cell-header {
+	display:table-cell;
+	background-color: #d8d8d8;
+	color:#333333;
+  	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#d8d8d8));
+	background: -moz-linear-gradient(#ededed, #d8d8d8);
+	text-align: center;
+	width: 100px;
+	border-right:2px solid #c7c7c7;	
+}
+
+.table-row {
+	display:table-row;
+}
+
+.table-cell {
+	display:table-cell;
+	border-top:1px solid #bdbdbd;
+	text-align:center;
+	padding:1.25em;
+}
+
+.button-grey-label {#444444;}
+
+.table-cell-last {
+	border-right:0;
+}
+
+.table-button {
+	border-right:0;
+	border-top:0;
+}
+
+.table-cell-multi {
+	background-color:#cce6f7;
+}
+
+#confirm-message {
+  width:400px;
+  margin-right:auto;
+  margin-left:auto;
+}
+#confirm-btn-box {
+  width:200px;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+input, select {
+  outline:medium none;
+}
+
+/*
+ For the start date and end date error check
+*/
+#start-date-error, #end-date-error {padding-left:5px;}
+
+a {text-decoration:none;}
+
+#success, #error { line-height:20px;}

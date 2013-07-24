@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Reports Management System</title>
+    <link rel="stylesheet" href="css/global.css" type="text/css" />
+    <link rel="stylesheet" href="css/top.css" type="text/css" />
+    <link rel="stylesheet" href="css/browse.css" type="text/css" />
+    <link rel="stylesheet" href="css/reset.css" type="text/css" />
+  </head>
+  <body>
+    <div id="top">
+      <div id="header" class="selected-bg">
+        <div id="title">Reports Management System</div>
+        <div id="logout"></div>
+      </div>
+      <div id="nav" class="gray-bg">
+        <a href="publisher-list.html"><div class="nav-item selected-bg inner-shadow">Publishers</div></a>
+        <a href="book-list.html"><div class="nav-item">Book Information</div></a>
+      </div>
+    </div>
+    <div id="content">
+      <div class="pagination">
+        <div id="total-items">Total Publishers</div>
+        <div class="paging">
+          <a class="btn-prev-page"><img class="go-prev-page" src="img/arrow-black-left.png" alt="Go to previous page" /></a>
+          <span class="blk">Page:</span> <span class="page-list"></span>
+          <a class="btn-next-page"><img class="go-next-page" src="img/arrow-black-right.png" alt=" Go to next page" /></a>
+        </div>
+      </div>
+
+      <div class="action-holder">
+        <div class="float-section">
+          <a href="publisheredit.py?action=create_new" class="no-underline"><div class="custombutton no-margin">Add Publisher</div></a>
+        </div>
+      </div>
+      <form action="publisherlist.py" method="post" name="publisher-list-form" enctype="multipart/form-data" id="publisher-list-form">
+        <table id="browselist">
+          <tr class="gray-bg">
+            <th>Name</th>
+            <th>Code</th>
+            <th>Book Cut</th>
+            <th>Kids Book Cut</th>
+            <th>SM Cut</th>
+            <th>Active</th>
+            <th>Actions</th>
+          </tr>
+        </table>
+      </form>
+      <div class="pagination">
+        <div class="paging paging-bottom">
+          <a class="btn-prev-page"><img class="go-prev-page" src="img/arrow-black-left.png" alt="Go to previous page" /></a>
+          <span class="blk">Page:</span> <span class="page-list"></span>
+          <a class="btn-next-page"><img class="go-next-page" src="img/arrow-black-right.png" alt=" Go to next page" /></a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
